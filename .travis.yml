@@ -1,0 +1,21 @@
+dist: xenial
+language: python
+python:
+  - "2.7"
+  - "3.6"
+
+env:
+  global:
+    - NODE_VERSION="10.15.3"
+    - PRETTIER_VERSION="1.18.2"
+
+install:
+  - pip install flake8==3.5.0
+
+script:
+  - python --version || true
+  - python -c 'print(__import__("flake8"))' || true
+  - node --version || true
+  - npm --version || true
+  - npx --version || true
+  - npx "prettier@${PRETTIER_VERSION}" --help || true
